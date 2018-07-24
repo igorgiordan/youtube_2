@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+<head>
+<title> Usuário </title>
+<meta charset "utf-8" />
+<meta http-equiv="Content-Language" content="pt-br">
+</head>
+<body>
+<h1 style="text-align: center; font-family: Arial; color:red">{{user}}</h1> 
+<div align="center">
+    <form action="cadastro_video">
+        <button type="submit">Cadastrar vídeo</button>
+    </form>
+</div>
+<div align="center">
+    <form action="/todos">
+        <button type="submit">Todos os vídeos</button>
+    </form>
+</div>
+<div align="center">
+    <form action="/excluir">
+        <a><button type="submit">Excluir vídeo</button></a>
+    </form>
+</div>
+<div align="center">
+    <form action="/sair" method="POST">
+        <button type="submit">Sair</button>
+    </form>
+</div>
+<h2 style="text-align: center; font-family: Arial; color:red">Lista de<span style="color: #000";> vídeos:</span></h2>
+{% for y in videos %}
+<div align="center">
+<h2 style="text-align: center; font-family: Arial; color:tomato">{{y[0]}}</h2>
+</div>
+<div align="center">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/{{y[2]}}?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+</div>
+<hr>
+{%endfor%}
+</body>
+</html>

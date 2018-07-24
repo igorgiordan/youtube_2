@@ -1,0 +1,14 @@
+<html>
+    <head>
+        {% if filme %}
+            <title>{{ filme }} </title>
+        {% else %}
+            <title>Página inicial</title>
+        {% endif %}
+    </head>
+    <body>
+        <h1>Filmes do INTIN</h1>
+        {% block content %}
+        {% endblock %}
+    </body>
+</html>

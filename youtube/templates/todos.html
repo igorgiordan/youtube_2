@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+<head>
+<title> Todos os Vídeos </title>
+<meta charset "utf-8" />
+<meta http-equiv="Content-Language" content="pt-br">
+</head>
+<body>
+<h1 style="text-align: center; font-family: Arial; color:red">{{user}}</h1>  
+<h2 style="text-align: center; font-family: Arial; color:red">Lista de<span style="color: #000";> vídeos de outros usuários:</span></h2>
+{% for y in videos %}
+<div align="center">
+<h2 style="text-align: center; font-family: Arial; color:tomato">{{y[0]}}</h2>
+</div>
+<div align="center">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/{{y[2]}}?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+</div>
+<div align="center">
+        <form  action="comentar/{{y[1]}}" method="POST">
+            <label for="coment"><h2 style="font-family: Arial; color:red">Comentário</h2></label>
+            <input type="text" name="coment">
+            <a href="/comentar/{{y[1]}}"><button type="submit">Comentar</button></a>
+        </form> 
+</div>
+<div>
+<h4 align="center" style="font-family: Arial; color:red">Comentários</h4>
+{%for i in comentarios%}
+{%if i[1]==y[1]%}
+<h6 align="center" style="font-family: Arial; color:#000">({{i[0]}}) <span style="color: #000";>{{i[2]}}</span></h6>
+</div>
+{%endif%}
+{%endfor%}
+<div align="center" style="font-family: Arial; color:red">
+    <h4>___________________</h4>
+</div>
+<div align="center">
+    <form action="curtir/{{y[1]}}" method="POST">
+        <a href="curtir/{{y[1]}}"><button type="submit">Curtir</button></a>
+    </form> 
+</div>
+<div>
+<h4 align="center" style="font-family: Arial; color:red">Curtidas</h4>
+{%for i in curtidas%}
+{%if i[0]==y[1]%}
+<h6 align="center" style="font-family: Arial; color:#000">{{i[1]}}</h6>
+</div>
+{%endif%}
+{%endfor%}
+<hr>
+{%endfor%}
+</html>

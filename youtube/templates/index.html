@@ -1,0 +1,58 @@
+﻿<!doctype html>
+<html>
+<head>
+<title> Youtube </title>
+<meta charset "utf-8" />
+<meta http-equiv="Content-Language" content="pt-br">
+</head>
+<body>
+<h1 style="text-align: center; font-family: Arial; color:red">You<span style="color: #000";>tube</span></h1>
+<div align="center"><img src="https://images.vexels.com/media/users/3/137425/isolated/preview/f2ea1ded4d037633f687ee389a571086-logotipo-do--cone-do-youtube-by-vexels.png"  width="150" height="150"></div> 
+<h2 style="text-align: center; font-family: Arial; color:red">Assista a diversos tipos de<span style="color: #000";> vídeos!</span></h2>
+<div align="center">
+<form action="login">
+    <a href="login"><button type="submit">Login</button></a>
+</form>
+</div>
+<div align="center">
+    <form action="cadastro">
+        <a href="cadastro"><button type="submit">Cadastro</button></a>
+    </form>
+</div>
+<br>
+<table border="1" align="center">
+    <tr>
+        <th align="center"><h2 style="font-family: Arial; color:red">Vídeos</h2></th>
+    </tr>
+</table>
+</br>
+{% for y in videos %}
+<div align="center">
+<h2 style="text-align: center; font-family: Arial; color:tomato">{{y[0]}}</h2>
+</div>
+<div align="center">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/{{y[2]}}?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+</div>
+<div>
+<h4 align="center" style="font-family: Arial; color:red">Comentários</h4>
+{%for i in comentarios%}
+{%if i[1]==y[1]%}
+<h6 align="center" style="font-family: Arial; color:#000">({{i[0]}}) <span style="color: #000";>{{i[2]}}</span></h6>
+</div>
+{%endif%}
+{%endfor%}
+<div align="center" style="font-family: Arial; color:red">
+    <h4>___________________</h4>
+</div>
+<h4 align="center" style="font-family: Arial; color:red">Curtidas</h4>
+{%for i in curtidas%}
+{%if i[0]==y[1]%}
+<h6 align="center" style="font-family: Arial; color:#000">{{i[1]}}</h6>
+</div>
+{%endif%}
+{%endfor%}
+<hr>
+{%endfor%}
+</br>
+</body>
+</html>
